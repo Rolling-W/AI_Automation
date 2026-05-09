@@ -38,8 +38,15 @@ That command ensures the model is available locally before the app tries to call
 ## Run the app
 
 ```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
+
+## Project Structure
+
+- [streamlit_app.py](streamlit_app.py) is the lightweight launcher.
+- [src/website_messaging_clarity_analyzer/text_sources.py](src/website_messaging_clarity_analyzer/text_sources.py) handles Tavily lookup and homepage extraction.
+- [src/website_messaging_clarity_analyzer/llm_analysis.py](src/website_messaging_clarity_analyzer/llm_analysis.py) handles Ollama prompting and JSON parsing.
+- [src/website_messaging_clarity_analyzer/ui.py](src/website_messaging_clarity_analyzer/ui.py) contains the Streamlit layout and app flow.
 
 ## How it works
 
@@ -65,4 +72,4 @@ The model must return valid JSON with these keys:
 
 - If Tavily fails, confirm `TAVILY_API_KEY` is present in `.env`.
 - If Ollama fails, make sure `ollama run llama3` works in a terminal before launching Streamlit.
-- If the model returns invalid JSON, rerun the analysis or tighten the system prompt in `app.py`.
+- If the model returns invalid JSON, rerun the analysis or tighten the system prompt in [src/website_messaging_clarity_analyzer/llm_analysis.py](src/website_messaging_clarity_analyzer/llm_analysis.py).
